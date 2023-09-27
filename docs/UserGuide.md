@@ -4,9 +4,9 @@
   pageNav: 3
 ---
 
-# AB-3 User Guide
+# Tutorium User Guide
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Tutorium is a **desktop application for tuition centre staff to obtain data analysis to plan marketing strategies**. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -17,11 +17,11 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `tutorium.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+1. Copy the file to the folder you want to use as the _home folder_ for your Tutorium.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar addressbook.jar` command to run the application.<br>
+1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tutorium.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -100,9 +100,10 @@ Format: `list`
 
 Edits an existing student's data in the address book.
 
-Format: 1. edit n/[NAME] or edit e/[EMAIL] (firstly specify for which student you want to edit)
-        2. e/[NEW_EMAIL] or n/[NEW_NAME] or a/[NEW_ADDRESS] or t/[NEW_TAG]  (change a particular field)
-        3. n/[NEW_NAME] e/[NEW_EMAIL]  or e/[NEW_EMAIL] t/[NEW_TAG] a/[NEW_ADRESS] (change multiple fields)
+Format: 
+1. `edit n/[NAME] or edit e/[EMAIL]` (firstly specify for which student you want to edit)
+2. `e/[NEW_EMAIL] or n/[NEW_NAME] or a/[NEW_ADDRESS] or t/[NEW_TAG]`  (change a particular field)
+3. `n/[NEW_NAME] e/[NEW_EMAIL]  or e/[NEW_EMAIL] t/[NEW_TAG] a/[NEW_ADRESS]` (change multiple fields)
 
 * Edits the person with a specific name or email.
   - edit n/[NAME] 
@@ -154,6 +155,25 @@ Examples:
 <br></br>
 * `delete n/Chuan Yuan` deletes student data that contains name `Chuan Yuan`
   ![result for 'delete Chuan Yuan'](images/ug_images/deleteChuanYuanResult.png)
+
+### Grouping data : `group`
+
+Shows the list of students data that holds a particular tag.
+
+Format: `group /by [TAG_NAME]`
+
+* TAG_NAME: Case sensitive string
+* The student list shows only the students whose data is tagged with “SubjectA” tag.
+* Case couldn’t find any data with the tag
+  Example: `group /by QWERTY`
+  Shows error message: `Tag does not exist.`
+* Case using wrong format
+  Example: `group SubjectA` or `group by SubjectA`
+  Shows error message: `Group usage: group /by [TAG_NAME]`
+
+Examples:
+* `group Maths` returns `Chuan Yuan`, `Li Yuan` and `Alfred` <br>
+  ![result for 'group Maths'](images/ug_images/groupMathsResult.png)
 
 ### Clearing all entries : `clear`
 
